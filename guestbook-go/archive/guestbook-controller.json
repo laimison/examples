@@ -1,6 +1,6 @@
 {
-   "kind":"ReplicaSet",
-   "apiVersion":"apps/v1",
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
    "metadata":{
       "name":"guestbook",
       "labels":{
@@ -8,11 +8,9 @@
       }
    },
    "spec":{
-      "replicas":2,
+      "replicas":3,
       "selector":{
-         "matchLabels":{
-           "app":"guestbook"
-       }
+         "app":"guestbook"
       },
       "template":{
          "metadata":{

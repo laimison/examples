@@ -2,33 +2,36 @@
    "kind":"ReplicaSet",
    "apiVersion":"apps/v1",
    "metadata":{
-      "name":"guestbook",
+      "name":"redis-master",
       "labels":{
-         "app":"guestbook"
+         "app":"redis",
+         "role":"master"
       }
    },
    "spec":{
-      "replicas":3,
+      "replicas":1,
       "selector":{
-         "matchLabels":{
-           "app":"guestbook"
+        "matchLabels":{
+          "app":"redis",
+          "role":"master"
        }
       },
       "template":{
          "metadata":{
             "labels":{
-               "app":"guestbook"
+               "app":"redis",
+               "role":"master"
             }
          },
          "spec":{
             "containers":[
                {
-                  "name":"guestbook",
-                  "image":"docker.io/laimison/guestbook:firsttry",
+                  "name":"redis-master",
+                  "image":"redis:2.8.23",
                   "ports":[
                      {
-                        "name":"http-server",
-                        "containerPort":3000
+                        "name":"redis-server",
+                        "containerPort":6379
                      }
                   ]
                }
