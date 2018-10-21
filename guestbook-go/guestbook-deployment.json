@@ -24,7 +24,7 @@
             "containers":[
                {
                   "name":"guestbook-nginx",
-                  "image":"docker.io/laimison/guestbook-nginx:v2",
+                  "image":"docker.io/laimison/guestbook-nginx:v12",
                   "ports":[
                      {
                         "name":"http-server",

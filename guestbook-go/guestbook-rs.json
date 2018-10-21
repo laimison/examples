@@ -23,22 +23,22 @@
          "spec":{
             "containers":[
                {
+                  "name":"guestbook-nginx",
+                  "image":"docker.io/laimison/guestbook-nginx:v12",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":80
+                     }
+                  ]
+               },
+               {
                   "name":"guestbook-go",
                   "image":"docker.io/laimison/guestbook:v12",
                   "ports":[
                      {
                         "name":"http-server",
                         "containerPort":3000
-                     }
-                  ]
-               },
-               {
-                  "name":"guestbook-nginx",
-                  "image":"docker.io/laimison/guestbook-nginx:v1",
-                  "ports":[
-                     {
-                        "name":"http-server",
-                        "containerPort":80
                      }
                   ]
                }
