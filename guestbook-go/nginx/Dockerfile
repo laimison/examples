@@ -1,10 +1,5 @@
-FROM nginx
-COPY html/* /usr/share/nginx/html/
-COPY default.conf /etc/nginx/conf.d/default.conf
+# Official Docker container from https://docs.docker.com/samples/library/nginx
+FROM nginx:1.15.5
 
-ENV APP_ROOT /usr/share/nginx/html
-RUN mkdir -p $APP_ROOT
-WORKDIR $APP_ROOT
-
-# RUN apt-get update
-# RUN apt-get update && apt-get install vim curl lsof tcpdump iputils-ping -y
+COPY html /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
