@@ -16,13 +16,6 @@ FROM golang:1.10.0
 RUN go get github.com/codegangsta/negroni \
            github.com/gorilla/mux \
            github.com/xyproto/simpleredis
-
-# Laimis - added bash and other tools
-# RUN apk add --no-cache ca-certificates bash redis
-# RUN apk add --update tzdata curl && rm -rf /var/cache/apk/*
-# RUN apk add --update bash && rm -rf /var/cache/apk/*
-# RUN apt install bash -y
-
 WORKDIR /app
 ADD ./main.go .
 RUN CGO_ENABLED=0 GOOS=linux go build -o main .
