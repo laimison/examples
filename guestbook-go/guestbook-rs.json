@@ -34,7 +34,7 @@
                },
                {
                   "name":"guestbook",
-                  "image":"docker.io/laimison/guestbook:v15",
+                  "image":"docker.io/laimison/guestbook:v14",
                   "ports":[
                      {
                         "name":"http-server",

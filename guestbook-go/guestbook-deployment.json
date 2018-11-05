@@ -9,6 +9,13 @@
    },
    "spec":{
       "replicas":2,
+      "strategy":{
+         "type":"RollingUpdate",
+         "rollingUpdate":{
+           "maxUnavailable":1,
+           "maxSurge":1
+        }
+      },
       "selector":{
          "matchLabels":{
            "app":"guestbook"
@@ -30,11 +37,20 @@
                         "name":"http-server",
                         "containerPort":80
                      }
-                  ]
+                  ],
+                  "readinessProbe":{
+                    "httpGet":{
+                        "path":"/",
+                        "port":80
+                     },
+                     "initialDelaySeconds":5,
+                     "periodSeconds":5,
+                     "successThreshold":1
+                  }
                },
                {
                   "name":"guestbook",
-                  "image":"docker.io/laimison/guestbook:v15",
+                  "image":"docker.io/laimison/guestbook:v14",
                   "ports":[
                      {
                         "name":"http-server",
